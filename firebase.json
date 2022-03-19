@@ -7,8 +7,8 @@
     "rules": "firebase/storage/storage.rules"
   },
   "hosting": {
-    "site": "graytonward.com",
-    "public": "public",
+    "site": "personal-site-cms",
+    "public": "./build",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
