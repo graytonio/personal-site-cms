@@ -2,6 +2,7 @@ import { buildSchema, buildProperty } from "@camberi/firecms";
 
 export type Post = {
   title: string;
+  slug: string;
   header_image: string;
   body: string;
   published_at: Date;
@@ -17,9 +18,15 @@ export const postSchema = buildSchema<Post>({
       title: "Title",
       validation: { required: true },
     },
+    slug: {
+      dataType: "string",
+      title: "Slug",
+      validation: { required: true, unique: true },
+    },
     header_image: buildProperty({
       dataType: "string",
       title: "Header Image",
+      validation: { required: true },
       config: {
         storageMeta: {
           mediaType: "image",
@@ -35,6 +42,7 @@ export const postSchema = buildSchema<Post>({
         markdown: true,
       },
       validation: {
+        required: true,
         trim: true,
       },
     },
