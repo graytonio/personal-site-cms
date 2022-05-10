@@ -8,6 +8,7 @@ export type User = {
 
 export const userSchema = buildSchema<User>({
   name: "User",
+  customId: true,
   properties: {
     uid: {
       dataType: "string",
