@@ -8,6 +8,7 @@ export type Post = {
   published_at: Date;
   updated_at: Date;
   tags: string[];
+  featured: boolean;
 };
 
 export const postSchema = buildSchema<Post>({
@@ -62,6 +63,13 @@ export const postSchema = buildSchema<Post>({
         config: {
           previewAsTag: true,
         },
+      },
+    },
+    featured: {
+      dataType: "boolean",
+      title: "Featured",
+      validation: {
+        required: true,
       },
     },
   },
